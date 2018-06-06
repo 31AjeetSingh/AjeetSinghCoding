@@ -7,10 +7,19 @@
 <p>{{serverCreationStatus}}</p>
 <label>User Name</label>
  <!-- <input type="text" class="formControl" (input)="onUpdateServerName($event)">  -->
-<!-- <input type="text" class="formControl" [(ngModel)]="serverName"> -->
-<input type="text" class="formControl" [(ngModel)]="userName"> 
-<p>{{userName}}</p> 
+<input type="text" class="formControl" [(ngModel)]="serverName">
+<!-- <input type="text" class="formControl" [(ngModel)]="userName"> 
+<p>{{userName}}</p>  -->
 <!-- <p>{{serverName}}</p> -->
 <hr>
-<button btn btn-primary [disabled]="userName  === ''" (click)="handleUser()">Add User</button>
-<button btn btn-primary [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<!-- <button btn btn-primary [disabled]="userName  === ''" (click)="handleUser()">Add User</button> -->
+<p *ngIf="serverCreated ; else noServer">Server was created, and the server name is {{serverName}} </p>
+<!-- <ng-template #noServer>
+  <p>No server was created</p>
+</ng-template> -->
+<button btn btn-primary (click)="handleDisplay()">Display Details</button>
+<p *ngIf = 'showResult'>I will show up only when you press the DD key</p>
+<ul>
+  <li *ngFor = 'let i of clickArray; let j = index' [ngClass]="{'design': j>=4}" [ngStyle]="{ backgroundColor: j>=4 ? 'blue': 'transparent' }">{{i}}</li>
+</ul>
+<!-- <button btn btn-primary [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button> -->
