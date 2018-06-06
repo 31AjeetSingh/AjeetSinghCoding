@@ -1,2 +1,16 @@
 <app-server></app-server>
 <app-server></app-server>
+
+<!-- <p>{{allowNewServer}}</p> -->
+
+<p [innerText]= "allowNewServer"></p>
+<p>{{serverCreationStatus}}</p>
+<label>User Name</label>
+ <!-- <input type="text" class="formControl" (input)="onUpdateServerName($event)">  -->
+<!-- <input type="text" class="formControl" [(ngModel)]="serverName"> -->
+<input type="text" class="formControl" [(ngModel)]="userName"> 
+<p>{{userName}}</p> 
+<!-- <p>{{serverName}}</p> -->
+<hr>
+<button btn btn-primary [disabled]="userName  === ''" (click)="handleUser()">Add User</button>
+<button btn btn-primary [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
